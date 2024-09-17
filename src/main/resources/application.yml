@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: demo
+  profiles:
+    active:
+    - native
+    - vault
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations:
+          - file:///${SUP_DIR}
+          - file:///${SUB_DIR}
+        vault:
+          backend: ${HASHICORP_BACKEND}
+          kv-version: ${HASHICORP_KV_VERSION}
+          host: ${HASHICORP_HOST}
+          port: ${HASHICORP_PORT}
+          authentication: token
+          token: ${HASHICORP_TOKEN}
+          scheme: ${HASHICORP_SCHEME}
+server:
+  port: ${SPRING_SERVER_PORT}
