@@ -5,6 +5,7 @@ spring:
     active:
     - native
     - vault
+    - git
   cloud:
     config:
       server:
@@ -20,5 +21,8 @@ spring:
           authentication: token
           token: ${HASHICORP_TOKEN}
           scheme: ${HASHICORP_SCHEME}
+        git:
+          uri: ${GIT_REPO_URI}
+          default-label: ${GIT_DEFAULT_BRANCH}
 server:
   port: ${SPRING_SERVER_PORT}
